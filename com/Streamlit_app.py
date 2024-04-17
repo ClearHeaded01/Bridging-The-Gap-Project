@@ -5,6 +5,7 @@ from googletrans import LANGUAGES, Translator
 all_languages = LANGUAGES.keys()
 language_codes = {name: code for code, name in LANGUAGES.items()}  # Dictionary comprehension for efficiency
 
+st.write("Is this working?")
 def main():
   st.write("Select a language to translate to:")
   selected_language = st.selectbox("", list(language_codes.keys()))  # Use selectbox for user choice
