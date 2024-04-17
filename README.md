@@ -10,3 +10,6 @@ We aim to provide mainly 4 features:
 3. Text to speech
 4. Multilingual Text
 
+![image](https://github.com/ClearHeaded01/Bridging-The-Gap-Project/assets/131377951/1822de15-d50b-4a0c-a753-3693446b28cc)
+![image](https://github.com/ClearHeaded01/Bridging-The-Gap-Project/assets/131377951/0beb4f9f-7493-4481-8984-10fa836a0208)
+
