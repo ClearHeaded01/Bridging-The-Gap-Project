@@ -1,27 +1,24 @@
 import streamlit as st
-from googletrans import LANGUAGES, Translator
+from gtts import gTTS 
+import os
 
-# Create language dictionary outside the main function
-all_languages = LANGUAGES.keys()
-language_codes = {name: code for code, name in LANGUAGES.items()}  # Dictionary comprehension for efficiency
-
-st.write("Is this working?")
 def main():
-  st.write("Select a language to translate to:")
-  selected_language = st.selectbox("", list(language_codes.keys()))  # Use selectbox for user choice
+    st.title("Text to Speech Converter")
 
-  text_to_translate = st.text_input("Enter the text to translate : ")
+    # Input text using Streamlit text input widget
+    text = st.text_area("Enter text:", "")
 
-  if selected_language and text_to_translate:  # Check for both inputs
-      target_language = language_codes[selected_language]
-      translated_text = translate_text(text_to_translate, target_language)
-      st.write("Translated text:", translated_text)
-  else:
-      st.warning("Please enter both text and choose a language to translate.")
+    # Button to trigger text-to-speech conversion
+    if st.button("Convert to Speech"):
+        text_to_speech(text)
 
-def translate_text(text, target_language):
-  translator = Translator()
-  translated_text = translator.translate(text, dest=target_language)
-  return translated_text.text
+def text_to_speech(text):
+    if text:
+        tts = gTTS(text)
+        tts.save("output.mp3")
+        st.audio("output.mp3", format="audio/mp3")
+    else:
+        st.warning("Please enter some text.")
 
-main()
+if __name__ == "__main__":
+    main()
